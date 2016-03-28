@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <link rel="stylesheet" href="demo/css/switch.css">
+</head>
+
+<body>
+    <div id="adSlideBox" class="tb_slide_box tb_slide_ad">
+        <img id="adSlideImg1" src="http://gtms01.alicdn.com/tps/i1/T1d_UqFmVfXXXbwKP7-520-280.png" class="tb_slide_img">
+        <img id="adSlideImg2" data-src="http://i.mmcdn.cn/simba/img/T1lycrFbpcXXb1upjX.jpg" class="tb_slide_img" style="display:none;">
+        <img id="adSlideImg3" data-src="http://i.mmcdn.cn/simba/img/T1.Pv9Ff4XXXb1upjX.jpg" class="tb_slide_img" style="display:none;">
+        <img id="adSlideImg4" data-src="http://i.mmcdn.cn/simba/img/T1lCz.FhJdXXb1upjX.jpg" class="tb_slide_img" style="display:none;">
+        <img id="adSlideImg5" data-src="http://gtms01.alicdn.com/tps/i1/T1meZjXc4hXXazuKP7-520-280.jpg" class="tb_slide_img" style="display:none;">
+        <div id="adSlideBtn" class="tb_slide_btn">
+            <a href="javascript:" class="tb_slide_on" data-rel="adSlideImg1">1</a>
+            <a href="javascript:" class="tb_slide_a" data-rel="adSlideImg2">2</a>
+            <a href="javascript:" class="tb_slide_a" data-rel="adSlideImg3">3</a>
+            <a href="javascript:" class="tb_slide_a" data-rel="adSlideImg4">4</a>
+            <a href="javascript:" class="tb_slide_a" data-rel="adSlideImg5">5</a>
+        </div>
+    </div>
+    <script src="jquery.min.js"></script>
+    <script src="jquery-powerSwitch.js"></script>
+    <script>
+    // 第一个大图广告slide
+    $("#adSlideBtn a").powerSwitch({
+        autoTime: 4000,
+        animation: "translate",
+        classAdd: "tb_slide_on",
+        classRemove: "tb_slide_a",
+        classPrefix: "tb_slide",
+        container: $("#adSlideBox"),
+        onSwitch: function(image) {
+            if (!image.attr("src")) {
+                image.attr("src", image.data("src"));
+            }
+        }
+    });
+    </script>
+</body>
+
+</html>
